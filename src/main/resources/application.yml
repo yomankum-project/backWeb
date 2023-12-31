@@ -1,17 +1,4 @@
 spring:
-  datasource:
-    url: ${DATA_URL}
-    driverClassName: com.mysql.cj.jdbc.Driver
-    username: ${DATA_USERNAME}
-    password: ${DATA_PASSWORD}
-  jpa:
-    database: mysql
-    hibernate:
-      use-new-id-generator-mappings: false
-      ddl-auto: create
-    show-sql: true
-    properties:
-      format_sql: true
   security:
     oauth2:
       client:
@@ -124,3 +111,9 @@ token:
 
 mail:
   id: ${MAIL_ID}
+
+---
+
+spring:
+  profiles:
+    active: dev
