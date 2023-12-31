@@ -24,10 +24,8 @@ public class SnsInfo {
     @Value("${spring.security.oauth2.client.provider.google.token-uri}")
     private String googleTokenUri;
 
-    @Value("${spring.security.oauth2.client.registration.naver.client-id}")
-    private String naverClientId;
-    @Value("${spring.security.oauth2.client.registration.naver.client-secret}")
-    private String naverClientSecret;
+    private final String naverClientId = System.getenv("NAVER_CLIENT_ID");
+    private final String naverClientSecret = System.getenv("NAVER_CLIENT_SECRET");
     @Value("${spring.security.oauth2.client.registration.naver.redirect-uri}")
     private String naverRedirectUri;
     @Value("${spring.security.oauth2.client.provider.naver.authorization-uri}")
@@ -38,10 +36,8 @@ public class SnsInfo {
     private String naverProfileApiUri;
 
 
-    @Value("${spring.security.oauth2.client.registration.kakao.client-id}")
-    private String kakaoClientId;
-    @Value("${spring.security.oauth2.client.registration.kakao.client-secret}")
-    private String kakaoClientSecret;
+    private final String kakaoClientId = System.getenv("KAKAO_CLIENT_ID");
+    private final String kakaoClientSecret = System.getenv("KAKAO_CLIENT_SECRET");
     @Value("${spring.security.oauth2.client.registration.kakao.redirect-uri}")
     private String kakaoRedirectUri;
     @Value("${spring.security.oauth2.client.provider.kakao.authorization-uri}")
