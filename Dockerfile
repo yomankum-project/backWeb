@@ -1,5 +1,5 @@
 # Stage 1: Build stage using Gradle
-FROM openjdk:17-alpine as build
+FROM --platform=linux/amd64 openjdk:17-alpine as build
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -17,7 +17,7 @@ RUN chmod +x /app/gradlew
 RUN ./gradlew build --exclude-task test
 
 # Stage 2: Create a minimal image to run the application
-FROM openjdk:17-alpine
+FROM --platform=linux/amd64 openjdk:17-alpine
 
 # Set the working directory inside the container
 WORKDIR /app
