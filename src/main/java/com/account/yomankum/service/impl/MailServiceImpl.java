@@ -6,8 +6,6 @@ import com.account.yomankum.util.RedisUtil;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
@@ -19,7 +17,6 @@ import static jakarta.mail.Message.*;
 
 @Service
 @RequiredArgsConstructor
-@PropertySource("classpath:application.yml")
 public class MailServiceImpl implements MailService {
 
     private final JavaMailSender mailSender;
@@ -27,8 +24,7 @@ public class MailServiceImpl implements MailService {
     private final RedisUtil redisUtil;
 
     private MimeMessage message;
-    @Value("${mail.id}")
-    private String fromEmail;
+    private final String FROM_EMAIL = System.getenv("MAIL_ID");
     private String title;
     private String template;
     private long expireCodeTime = 60 * 15L;
@@ -90,7 +86,7 @@ public class MailServiceImpl implements MailService {
         message = mailSender.createMimeMessage();
         message.addRecipients(RecipientType.TO, userEmail);
         message.setSubject(title);
-        message.setFrom(fromEmail);
+        message.setFrom(FROM_EMAIL);
         message.setText(getContext(key, value, template), charset, html);
 
         redisUtil.setDataExpire(userEmail, randomCode, expireCodeTime);
