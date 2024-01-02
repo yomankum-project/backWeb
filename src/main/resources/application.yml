@@ -10,8 +10,8 @@ spring:
               - email
             redirect-uri: http://localhost:8080/
           naver:
-            client-id: ${NAVER_CLIENT_ID}
-            client-secret: ${NAVER_CLIENT_SECRET}
+#            client-id: ${NAVER_CLIENT_ID}
+#            client-secret: ${NAVER_CLIENT_SECRET}
             scope:
               - name
               - email
@@ -20,8 +20,8 @@ spring:
             authorization-grant-type: authorization_code
             redirect-uri: http://localhost:8080/
           kakao:
-            client-id: ${KAKAO_CLIENT_ID}
-            client-secret: ${KAKAO_CLIENT_SECRET}
+#            client-id: ${KAKAO_CLIENT_ID}
+#            client-secret: ${KAKAO_CLIENT_SECRET}
             scope:
               - account_email
             client-name: Kakao
@@ -45,15 +45,10 @@ spring:
   mail:
     host: smtp.naver.com
     port: 465
-    username: ${MAIL_USERNAME}
-    password: ${MAIL_PASSWORD}
     properties:
       mail.smtp.auth: true
       mail.smtp.ssl.enable: true
       mail.smtp.ssl.trust: smtp.naver.com
-  redis:
-    host: localhost
-    port: 6379
 
 jasypt:
   encryptor:
