@@ -109,9 +109,6 @@ token:
   secret:
     key: ENC(9Kt1awvcH4hXAVFrnCtrH6OOzyPaYZiFkrzmFUw4lO5e6MZyFwDOLFmaWzMikJdiZ5H5Mgec1Sscua5zivXloiHZctp81GiBElApm7DJ2ksAleAJvNZDqRaXsqxMR+Dn6iSBYJE/qDa/11w5zEKdTJlHyUnKkMObimFQpKex4enHOlIybnPDXtfxlWY2tsOq)
 
-mail:
-  id: ${MAIL_ID}
-
 ---
 
 spring:
