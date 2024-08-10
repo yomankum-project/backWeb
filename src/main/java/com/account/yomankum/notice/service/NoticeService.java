@@ -6,6 +6,7 @@ import com.account.yomankum.notice.domain.Notice;
 import com.account.yomankum.notice.domain.NoticeStatus;
 import com.account.yomankum.notice.domain.UserNotice;
 import com.account.yomankum.notice.repository.UserNoticeRepository;
+import com.account.yomankum.socket.common.CustomWebSocketHandler;
 import com.account.yomankum.user.domain.User;
 import com.account.yomankum.user.service.UserFinder;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,8 @@ public class NoticeService {
 
     private final UserNoticeRepository userNoticeRepository;
     private final UserFinder userFinder;
+
+    private final CustomWebSocketHandler webSocketHandler;
 
     public Notice save(Long userId, String content) {
         User user = userFinder.findById(userId).orElseThrow(() -> new BadRequestException(Exception.USER_NOT_FOUND));
@@ -34,6 +37,7 @@ public class NoticeService {
                 .build();
 
         userNoticeRepository.save(userNotice);
+        //TODO 어떤 알림이냐? -전체, -개인알람
         return notice;
     }
 }
