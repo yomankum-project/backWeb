@@ -1,0 +1,64 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/yomankum?useSSL=false&allowPublicKeyRetrieval=true
+    username: holiday
+    password: in828282
+  jpa:
+    database: mysql
+    hibernate:
+      use-new-id-generator-mappings: false
+      ddl-auto: create
+    show-sql: true
+    properties:
+      format_sql: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google: # 도메인 없어서 불가
+            client-id: cliendtId
+            client-secret: cliendtSecret
+            scope:
+              - email
+            redirect-uri: http://localhost:8080/
+          naver:
+            client-id: VVrviPtw50xif3PUsvby
+            client-secret: xGKXY5vHJP
+            scope:
+              - name
+              - email
+              - mobile
+            client-name: Naver
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/
+          kakao:
+            client-id: de846ae383b9c41af8d14bcc90700379
+            client-secret: otrfLjd6BmlQkRdBGyVSfsNbFDbD1G8t
+            scope:
+              - account_email
+            client-name: Kakao
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/
+            client-authentication-method: POST
+
+  mail:
+    host: smtp.naver.com
+    port: 465
+    username: y0mankum
+    password: yomankum1004
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.ssl.enable: true
+      mail.smtp.ssl.trust: smtp.naver.com
+  redis:
+    host: localhost
+    port: 6379
+    password: 16379
+
+jasypt:
+  encryptor:
+    password: ${JASYPT_ENCRYPTOR_PASSWORD}
+    algorithm: PBEWithMD5AndDES
+    ivGeneratorClassname: org.jasypt.iv.NoIvGenerator
