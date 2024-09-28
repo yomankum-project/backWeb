@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - develop
+      - feature/92-cicd
 env:
   IMAGE_NAME: back/back-app
   HARBOR_URL: harbor.3trolls.me
