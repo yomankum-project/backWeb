@@ -10,7 +10,7 @@ env:
   HARBOR_URL: harbor.3trolls.me
   HARBOR_PROJECT: yomankum
 jobs:
-  docker:
+  ci:
     runs-on: [self-hosted, linux, x64, yomankum]
     steps:
       - 
