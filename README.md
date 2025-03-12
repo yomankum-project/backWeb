@@ -1,4 +1,4 @@
-# (가제) 요만큼
+# 요만큼
 ---
 
 [자세한 건 **여기**를 클릭해주세요!](https://larshavin.notion.site/a42a9b4cfa1f4555bb4fd2dd2e009119?pvs=4)
@@ -20,6 +20,13 @@
 - 실사용 내역이랑 안 맞는 경우가 있다.
 
 ## 기능
+<div align="center">
+  <img width="1067" alt="스크린샷 2025-03-12 오후 9 31 57" src="https://github.com/user-attachments/assets/ea1b0097-277d-4d53-8f54-1c4aa87ef2e7" />
+</div>
+
+<div align="center">
+  <img width="857" alt="스크린샷 2025-03-12 오후 9 34 51" src="https://github.com/user-attachments/assets/0ad78091-7f2c-416d-b94d-7685af6abcf9" />
+</div>
 
 - 월급 입력이 가능하다.
 - 오늘 소비, 일주일 소비, 월소비 등을 분류하자.
@@ -64,6 +71,7 @@
   - `BadRequestException` → 4xx 에러
   - `InternalErrorException` → 5xx 에러
   - `Exception` → 에러 코드
+- 전략패턴을 통해 구현된 통계 기능
 - [비밀번호 자체 검증 애노테이션 사용](https://hyuil.tistory.com/288)
 - Docker container image → container 생성
   - 빠른 빌드를 위해 `./gradlew build --exclude-task test` 로 테스트 비포함 빌드
